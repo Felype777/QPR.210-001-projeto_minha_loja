@@ -1,0 +1,55 @@
+/*FORMATANDO TÍTULO*/
+
+#titulo{
+
+    width:650px;
+    height:80px;
+
+    background-color:var(--cor01);
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    margin:20px 0px;
+
+    border-radius:8px;
+
+}
+
+#titulo h1{
+
+    color:var(--cor02);
+
+    text-transform:uppercase;
+
+    letter-spacing:5px;
+
+}
+
+
+/*FORMATANDO SOBRE*/
+
+#sobre{
+
+    width:1000px;
+
+    min-height:400px;
+
+    padding:30px;
+
+    border:1px solid var(--cor02);
+
+    border-radius:8px;
+
+    margin-bottom:20px;
+
+}
+
+#sobre p{
+
+    margin-bottom:20px;
+
+    line-height:30px;
+
+}

@@ -1,0 +1,83 @@
+/*FORMATANDO TÍTULO*/
+
+#titulo{
+
+    width:650px;
+    height:80px;
+
+    background-color:var(--cor01);
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    margin:20px 0px;
+
+    border-radius:8px;
+
+}
+
+#titulo h1{
+
+    color:var(--cor02);
+
+    text-transform:uppercase;
+
+    letter-spacing:5px;
+
+}
+
+
+/*FORMATANDO CADASTRO*/
+
+#cadastro{
+
+    width:1000px;
+
+    display:flex;
+
+    justify-content:center;
+
+    margin-bottom:20px;
+
+}
+
+.formulario{
+
+    width:650px;
+
+    padding:30px;
+
+    border:1px solid var(--cor02);
+
+    border-radius:8px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+
+}
+
+.formulario input{
+
+    height:40px;
+
+    padding:10px;
+
+    border-radius:8px;
+
+    border:1px solid var(--cor02);
+
+}
+
+.formulario button{
+
+    width:250px;
+
+    height:40px;
+
+    margin:auto;
+
+}
