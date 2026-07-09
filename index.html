@@ -5,184 +5,211 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Projeto Minha Loja Virtual</title>
+    <title>Du7 Imports - Loja de Eletrônicos</title>
 
     <link rel="stylesheet" href="css/style_estutura_pagina.css">
+
+    <script src="js/produtos.js" type="module" defer></script>
 
 </head>
 
 <body>
 
-    <main id="geral">
+<main id="geral">
 
-        <header id="cabecalho">
+    <header id="cabecalho">
 
-            <div id="logo">
+        <div id="logo">
+            Du7 Imports
+        </div>
 
-               SuaLoja
+        <nav id="menu">
 
-            </div>
+            <ul>
 
-            <nav id="menu">
+                <li><a href="paginas/cadastro.html">Cadastro</a></li>
 
-                <ul>
+                <li><a href="paginas/sobre.html">Sobre</a></li>
 
-                    <li><a href="paginas/cadastro.html">Cadastro</a></li>
+                <li><a href="paginas/login.html">Login</a></li>
 
-                    <li><a href="paginas/sobre.html">Sobre</a></li>
+                <li>
+                    <a href="paginas/carrinho.html">
+                        <img src="imagens/icones/carrinho.png" alt="Carrinho">
+                    </a>
+                </li>
 
-                    <li><a href="paginas/login.html">Login</a></li>
+            </ul>
 
-                    <li>
+        </nav>
 
-                        <a href="paginas/carrinho.html">
+    </header>
 
-                            <img src="imagens/icones/carrinho.png" alt="Carrinho">
+    <section id="pesquisa">
 
-                        </a>
+        <input
+            type="text"
+            id="campo-pesquisa"
+            class="input-pesquisa"
+            placeholder="Pesquisar produtos...">
 
-                    </li>
+    </section>
 
-                </ul>
+    <section id="secoes-produtos">
 
-            </nav>
+        <ul id="menu-secoes">
 
-        </header>
+            <li><a href="#" class="lnk-secao">Smartphones</a></li>
 
+            <li><a href="#" class="lnk-secao">Fones</a></li>
 
-        <section id="pesquisa">
+            <li><a href="#" class="lnk-secao">Smartwatches</a></li>
 
-            <input type="text"
-                   name="pesquisa"
-                   id="campo-pesquisa"
-                   class="input-pesquisa"
-                   placeholder="Digite seu produto">
+            <li><a href="#" class="lnk-secao">Games</a></li>
 
-        </section>
+            <li><a href="#" class="lnk-secao">Tablets</a></li>
 
+            <li><a href="#" class="lnk-secao">Acessórios</a></li>
 
-        <section id="cards">
+        </ul>
 
-            <div class="card">
+    </section>
 
-                <img src="imagens/1de0d9a273c23be702331d76c3364a61.jpg" alt="Kit Camisa e Short do Barcelona">
+    <section id="cards">
 
-                <p>Kit do Barcelona</p>
+        <div class="card">
 
-                <h2>R$ 120,00</h2>
+            <img src="imagens/images.jpg" alt="iPhone 15 Pro Max">
 
-                <button class="btn-add">Adicionar</button>
+            <p>iPhone 15 Pro Max 256GB</p>
 
-            </div>
+            <h2>R$ 8.999,00</h2>
 
+            <button class="btn-add">Adicionar</button>
 
-            <div class="card">
+        </div>
 
-                <img src="imagens/3d9efe4f5b9dca1e6bd706d35a422bdf.jpg" alt="Garrafas Térmicas">
+        <div class="card">
 
-                <p>Garrafas Térmicas</p>
+            <img src="imagens/511c23mDjoL._AC_UF1000,1000_QL80_.jpg" alt="Sony WH-1000XM5">
 
-                <h2>R$ 150,00</h2>
+            <p>Fone Sony WH-1000XM5</p>
 
-                <button class="btn-add">Adicionar</button>
+            <h2>R$ 2.199,00</h2>
 
-            </div>
+            <button class="btn-add">Adicionar</button>
 
+        </div>
 
-            <div class="card">
+        <div class="card">
 
-                <img src="imagens/4b83776fb7f95b433c0b218bba5f318e.jpg" alt="Camisa Flamengo e Brasil">
+            <img src="imagens/images (1).jpg" alt="Apple Watch">
 
-                <p>Camisa Flamengo e Brasil</p>
+            <p>Apple Watch Series 9</p>
 
-                <h2>R$ 50,00</h2>
+            <h2>R$ 3.499,00</h2>
 
-                <button class="btn-add">Adicionar</button>
+            <button class="btn-add">Adicionar</button>
 
-            </div>
+        </div>
 
+        <div class="card">
 
-            <div class="card">
+            <img src="imagens/imagem 4.jpg" alt="PlayStation 5">
 
-                <img src="imagens/5d8c5644ff2654308e74613106f1a5f9.jpg" alt="Caixa de Som Bluetooth RGB">
+            <p>PlayStation 5 Slim 1TB</p>
 
-                <p>Caixa Bluetooth RGB</p>
+            <h2>R$ 3.799,00</h2>
 
-                <h2>R$ 89,90</h2>
+            <button class="btn-add">Adicionar</button>
 
-                <button class="btn-add">Adicionar</button>
+        </div>
 
-            </div>
+        <div class="card">
 
+            <img src="imagens/imagem 5.jpg" alt="JBL Boombox">
 
-            <div class="card">
+            <p>Caixa JBL Boombox 3 Wi-Fi</p>
 
-                <img src="imagens/6ee2536da476c8f217c3887a8cc3af8a.jpg" alt="Smartwatch Ultra">
+            <h2>R$ 2.699,00</h2>
 
-                <p>Smartwatch Ultra 2 + Pulseiras</p>
+            <button class="btn-add">Adicionar</button>
 
-                <h2>R$ 79,90</h2>
+        </div>
 
-                <button class="btn-add">Adicionar</button>
+        <div class="card">
 
-            </div>
+            <img src="imagens/imagem 6.jpg" alt="Galaxy Tab S9">
 
+            <p>Samsung Galaxy Tab S9 Ultra</p>
 
-            <div class="card">
+            <h2>R$ 5.999,00</h2>
 
-                <img src="imagens/9d1c55e27753aa8be13483634b039161.jpg" alt="Kit Torcedor Brasil">
+            <button class="btn-add">Adicionar</button>
 
-                <p>Kit Torcedor Brasil</p>
+        </div>
 
-                <h2>R$ 59,90</h2>
+        <div class="card">
 
-                <button class="btn-add">Adicionar</button>
+            <img src="imagens/imagem 7.webp" alt="Power Bank">
 
-            </div>
+            <p>Power Bank Anker 20.000mAh</p>
 
+            <h2>R$ 299,00</h2>
 
-            <div class="card">
+            <button class="btn-add">Adicionar</button>
 
-                <img src="imagens/f6509d5c8ff99a7e69f11530dd542e45.jpg" alt="Playstation 5">
+        </div>
 
-                <p>Playstation 5</p>
+        <div class="card">
 
-                <h2>R$ 2.599,99</h2>
+            <img src="imagens/imagem 8.jpg" alt="Meta Quest 3">
 
-                <button class="btn-add">Adicionar</button>
+            <p>Meta Quest 3 128GB</p>
 
-            </div>
+            <h2>R$ 4.299,00</h2>
 
+            <button class="btn-add">Adicionar</button>
 
-            <div class="card">
+        </div>
 
-                <img src="imagens/ec98b2600b2c17946b1b908f83449506.jpg" alt="Iphones Novos">
+        <div class="card">
 
-                <p>Iphones Novos</p>
+            <img src="imagens/imagem 9.jpg" alt="Amazon Echo Dot">
 
-                <h2>A partir de R$ 999,99</h2>
+            <p>Amazon Echo Dot 5ª Geração</p>
 
-                <button class="btn-add">Adicionar</button>
+            <h2>R$ 349,00</h2>
 
-            </div>
+            <button class="btn-add">Adicionar</button>
 
+        </div>
 
-        </section>
+        <div class="card">
 
+            <img src="imagens/imagem 10.jpg" alt="DJI Osmo Mobile 6">
 
-        <footer id="rodape">
+            <p>DJI Osmo Mobile 6</p>
 
-            <h2>&copy Du7 Imports</h2>
+            <h2>R$ 999,00</h2>
 
-            <p>
+            <button class="btn-add">Adicionar</button>
 
-                Formas de pagamentos: Pix, Cartões de Débito e Crédito
+        </div>
 
-            </p>
+    </section>
 
-        </footer>
+    <footer id="rodape">
 
-    </main>
+        <h2>&copy; 2026 Du7 Imports</h2>
+
+        <p>
+            Formas de pagamento: Pix, Cartões de Débito e Crédito.
+        </p>
+
+    </footer>
+
+</main>
 
 </body>
 </html>
