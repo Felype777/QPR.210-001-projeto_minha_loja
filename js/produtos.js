@@ -1,139 +1,202 @@
 // IMPORTANDO OS PRODUTOS
-import { produtos } from './lista_produtos.js'
+import { produtos } from './lista_produtos.js';
+console.log("produtos.js carregado");
 
-// ELEMENTOS DO DOM
-const sectionCards = document.querySelector('#cards')
-const ulMenuSecoes = document.querySelector('#menu-secoes')
-const campoPesquisa = document.querySelector('#campo-pesquisa')
+const sectionCards = document.querySelector('#cards');
+const ulMenuSecoes = document.querySelector('#menu-secoes');
+const campoPesquisa = document.querySelector('#campo-pesquisa');
 
-// MONTAR CARDS
-const montaCards = (listaProdutos) => {
+// ADICIONAR AO CARRINHO
+function adicionarAoCarrinho(produto) {
 
-    sectionCards.innerHTML = ''
+    console.log("1");
 
-    listaProdutos.forEach((produto) => {
+    let carrinho = [];
 
-        const divCard = document.createElement('div')
-        divCard.className = 'card'
+    console.log("2");
 
-        const img = document.createElement('img')
-        img.src = produto.caminho_imagem
-        img.alt = produto.descricao_produto
+    try {
 
-        const descricao = document.createElement('p')
-        descricao.textContent = produto.descricao_produto
+        carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
 
-        const preco = document.createElement('h2')
-        preco.textContent = `R$ ${produto.valor_unitario.toFixed(2).replace('.', ',')}`
+        console.log("3", carrinho);
 
-        const botao = document.createElement('button')
-        botao.className = 'btn-add'
-        botao.textContent = 'Adicionar'
+    } catch (erro) {
 
-        divCard.appendChild(img)
-        divCard.appendChild(descricao)
-        divCard.appendChild(preco)
-        divCard.appendChild(botao)
+        console.error("Erro ao ler localStorage:", erro);
 
-        sectionCards.appendChild(divCard)
+        carrinho = [];
 
-    })
-
-}
-
-// MOSTRAR TODOS OS PRODUTOS
-const listarProdutos = () => {
-    montaCards(produtos)
-}
-
-// FILTRAR POR CATEGORIA
-const filtroProduto = (idSecao) => {
-
-    if (idSecao === 0) {
-        listarProdutos()
-        return
     }
 
-    const filtrados = produtos.filter(produto => produto.id_secao === idSecao)
+    console.log("4");
 
-    montaCards(filtrados)
+    carrinho.push({
+        ...produto,
+        quantidade: 1
+    });
+
+    console.log("5");
+
+    localStorage.setItem("carrinho", JSON.stringify(carrinho));
+
+    console.log("6");
+
+    alert("Produto salvo!");
 
 }
 
-// CARREGAR MENU
-const carregaSecoes = () => {
+// MONTAR CARDS
+function montaCards(listaProdutos) {
+
+    sectionCards.innerHTML = '';
+
+    listaProdutos.forEach(produto => {
+
+        const divCard = document.createElement('div');
+        divCard.className = 'card';
+
+        const img = document.createElement('img');
+        img.src = produto.caminho_imagem;
+        img.alt = produto.descricao_produto;
+
+        const descricao = document.createElement('p');
+        descricao.textContent = produto.descricao_produto;
+
+        const preco = document.createElement('h2');
+        preco.textContent =
+            `R$ ${produto.valor_unitario.toFixed(2).replace('.', ',')}`;
+
+        const botao = document.createElement('button');
+        botao.className = 'btn-add';
+        botao.textContent = 'Adicionar';
+
+        botao.addEventListener('click', () => {
+
+            console.log("CLIQUE FUNCIONOU");
+        
+            console.log(produto);
+    
+            adicionarAoCarrinho(produto);
+        
+        });
+
+        divCard.appendChild(img);
+        divCard.appendChild(descricao);
+        divCard.appendChild(preco);
+        divCard.appendChild(botao);
+
+        sectionCards.appendChild(divCard);
+
+    });
+
+}
+
+// LISTAR PRODUTOS
+function listarProdutos() {
+    montaCards(produtos);
+}
+
+// FILTRAR
+function filtroProduto(idSecao) {
+
+    if (idSecao === 0) {
+
+        listarProdutos();
+        return;
+
+    }
+
+    const filtrados = produtos.filter(produto =>
+        produto.id_secao === idSecao
+    );
+
+    montaCards(filtrados);
+
+}
+
+// MENU
+function carregaSecoes() {
 
     ulMenuSecoes.innerHTML = '';
 
-    // BOTÃO TODOS
-    const liTodos = document.createElement('li')
+    const liTodos = document.createElement('li');
 
-    const aTodos = document.createElement('a')
-    aTodos.href = '#'
-    aTodos.className = 'lnk-secao'
-    aTodos.textContent = 'Todos'
+    const aTodos = document.createElement('a');
+    aTodos.href = '#';
+    aTodos.className = 'lnk-secao';
+    aTodos.textContent = 'Todos';
 
     aTodos.addEventListener('click', (e) => {
-        e.preventDefault()
-        listarProdutos()
-    })
 
-    liTodos.appendChild(aTodos)
-    ulMenuSecoes.appendChild(liTodos)
+        e.preventDefault();
 
-    // REMOVE CATEGORIAS REPETIDAS
-    const categorias = []
+        listarProdutos();
 
-    produtos.forEach((produto) => {
+    });
+
+    liTodos.appendChild(aTodos);
+
+    ulMenuSecoes.appendChild(liTodos);
+
+    const categorias = [];
+
+    produtos.forEach(produto => {
 
         if (!categorias.some(cat => cat.id_secao === produto.id_secao)) {
+
             categorias.push({
+
                 id_secao: produto.id_secao,
                 secao: produto.secao
-            })
+
+            });
+
         }
 
-    })
+    });
 
-    // CRIA MENU
-    categorias.forEach((categoria) => {
+    categorias.forEach(categoria => {
 
-        const li = document.createElement('li')
+        const li = document.createElement('li');
 
-        const a = document.createElement('a')
-        a.href = '#'
-        a.className = 'lnk-secao'
-        a.textContent = categoria.secao
+        const a = document.createElement('a');
+
+        a.href = '#';
+
+        a.className = 'lnk-secao';
+
+        a.textContent = categoria.secao;
 
         a.addEventListener('click', (e) => {
 
-            e.preventDefault()
+            e.preventDefault();
 
-            filtroProduto(categoria.id_secao)
+            filtroProduto(categoria.id_secao);
 
-        })
+        });
 
-        li.appendChild(a)
+        li.appendChild(a);
 
-        ulMenuSecoes.appendChild(li)
+        ulMenuSecoes.appendChild(li);
 
-    })
+    });
 
 }
 
 // PESQUISA
 campoPesquisa.addEventListener('keyup', () => {
 
-    const texto = campoPesquisa.value.toLowerCase()
+    const texto = campoPesquisa.value.toLowerCase();
 
     const resultado = produtos.filter(produto =>
         produto.descricao_produto.toLowerCase().includes(texto)
-    )
+    );
 
-    montaCards(resultado)
+    montaCards(resultado);
 
-})
+});
 
 // INICIAR
-listarProdutos()
-carregaSecoes()
+listarProdutos();
+carregaSecoes();
