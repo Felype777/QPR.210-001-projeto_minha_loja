@@ -5,6 +5,24 @@ console.log("produtos.js carregado");
 const sectionCards = document.querySelector('#cards');
 const ulMenuSecoes = document.querySelector('#menu-secoes');
 const campoPesquisa = document.querySelector('#campo-pesquisa');
+const contadorCarrinho = document.querySelector('#contador-carrinho');
+
+// Atualiza o contador do carrinho
+function atualizarContadorCarrinho(){
+
+    const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+
+    let total = 0;
+
+    carrinho.forEach(item => {
+        total += item.quantidade;
+    });
+
+    if(contadorCarrinho){
+        contadorCarrinho.textContent = total;
+    }
+
+}
 
 // ADICIONAR AO CARRINHO
 function adicionarAoCarrinho(produto) {
@@ -42,6 +60,8 @@ function adicionarAoCarrinho(produto) {
 
     console.log("6");
 
+    atualizarContadorCarrinho();
+
     alert("Produto salvo!");
 
 }
@@ -57,19 +77,104 @@ function montaCards(listaProdutos) {
         divCard.className = 'card';
 
         const img = document.createElement('img');
-        img.src = produto.caminho_imagem;
-        img.alt = produto.descricao_produto;
 
-        const descricao = document.createElement('p');
-        descricao.textContent = produto.descricao_produto;
+img.src = produto.caminho_imagem;
+img.alt = produto.descricao_produto;
 
-        const preco = document.createElement('h2');
-        preco.textContent =
-            `R$ ${produto.valor_unitario.toFixed(2).replace('.', ',')}`;
+img.style.cursor = "pointer";
 
-        const botao = document.createElement('button');
-        botao.className = 'btn-add';
-        botao.textContent = 'Adicionar';
+img.addEventListener("click", () => {
+
+    localStorage.setItem("produtoSelecionado", JSON.stringify(produto));
+
+    window.location.href = "paginas/produto.html";
+
+});
+
+       // Selo
+       const selo = document.createElement('span');
+       selo.className = 'selo';
+       selo.textContent = 'NOVO';
+
+       // Estrelas
+       const estrelas = document.createElement('div');
+       estrelas.className = 'estrelas';
+       estrelas.innerHTML = '★★★★★';
+
+      // Descrição
+      const descricao = document.createElement('p');
+
+descricao.textContent = produto.descricao_produto;
+
+descricao.style.cursor = "pointer";
+
+descricao.addEventListener("click", () => {
+
+    localStorage.setItem("produtoSelecionado", JSON.stringify(produto));
+
+    window.location.href = "paginas/produto.html";
+
+});
+ 
+     // Preço
+    const preco = document.createElement('h2');
+    preco.textContent =
+    `R$ ${produto.valor_unitario.toFixed(2).replace('.', ',')}`;
+
+     // Parcelamento
+     const parcela = document.createElement('span');
+     parcela.className = 'parcelamento';
+     parcela.textContent =
+     `ou 12x de R$ ${(produto.valor_unitario/12).toFixed(2).replace('.', ',')}`;
+
+    // Botão Comprar
+    const comprar = document.createElement('button');
+
+    comprar.className = 'btn-comprar';
+    
+    comprar.textContent = 'Comprar Agora';
+    
+    comprar.addEventListener("click", () => {
+    
+        localStorage.setItem("produtoSelecionado", JSON.stringify(produto));
+    
+        window.location.href = "paginas/produto.html";
+    
+    });
+
+    // Botão Favorito
+const favorito = document.createElement('button');
+favorito.className = 'btn-favorito';
+favorito.innerHTML = '🤍 Favoritar';
+
+favorito.addEventListener('click', () => {
+
+    let favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
+
+    const existe = favoritos.find(item => item.id_produto === produto.id_produto);
+
+    if(existe){
+
+        favoritos = favoritos.filter(item => item.id_produto !== produto.id_produto);
+
+        favorito.innerHTML = '🤍 Favoritar';
+
+    }else{
+
+        favoritos.push(produto);
+
+        favorito.innerHTML = '❤️ Favoritado';
+
+    }
+
+    localStorage.setItem('favoritos', JSON.stringify(favoritos));
+
+});
+
+    // Botão Carrinho
+    const botao = document.createElement('button');
+    botao.className = 'btn-add';
+    botao.textContent = 'Adicionar ao Carrinho';
 
         botao.addEventListener('click', () => {
 
@@ -81,12 +186,17 @@ function montaCards(listaProdutos) {
         
         });
 
-        divCard.appendChild(img);
-        divCard.appendChild(descricao);
-        divCard.appendChild(preco);
-        divCard.appendChild(botao);
+divCard.appendChild(selo);
+divCard.appendChild(img);
+divCard.appendChild(estrelas);
+divCard.appendChild(descricao);
+divCard.appendChild(preco);
+divCard.appendChild(parcela);
+divCard.appendChild(comprar);
+divCard.appendChild(botao);
+divCard.appendChild(favorito);
 
-        sectionCards.appendChild(divCard);
+sectionCards.appendChild(divCard);
 
     });
 
@@ -200,3 +310,4 @@ campoPesquisa.addEventListener('keyup', () => {
 // INICIAR
 listarProdutos();
 carregaSecoes();
+atualizarContadorCarrinho();
