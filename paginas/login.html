@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
 
     <meta charset="UTF-8">
@@ -8,7 +9,7 @@
     <title>Login - DU7 IMPORTS</title>
 
     <link rel="stylesheet" href="../css/style_estutura_pagina.css">
-    <link rel="stylesheet" href="../css/style_login.css">
+    <link rel="stylesheet" href="../css/style_login_cadastro.css">
 
 </head>
 
@@ -30,9 +31,9 @@
 
                 <li><a href="cadastro.html">Cadastro</a></li>
 
-                <li><a href="sobre.html">Sobre</a></li>
-
                 <li><a href="login.html">Login</a></li>
+
+                <li><a href="sobre.html">Sobre</a></li>
 
                 <li>
                     <a href="carrinho.html">
@@ -46,31 +47,45 @@
 
     </header>
 
-    <section id="titulo">
+    <section class="formulario">
 
-        <h1>Faça seu Login</h1>
+        <h1>Entrar</h1>
 
-    </section>
-
-    <section id="login">
-
-        <form class="formulario">
+        <form id="formLogin">
 
             <input
                 type="email"
-                placeholder="Digite seu Email">
+                id="email"
+                placeholder="E-mail"
+                required>
 
             <input
                 type="password"
-                placeholder="Digite sua Senha">
+                id="senha"
+                placeholder="Senha"
+                required>
 
-            <button class="btn-add">
+            <button
+                type="submit"
+                class="btn-add">
 
                 Entrar
 
             </button>
 
         </form>
+
+        <p>
+
+            Ainda não possui uma conta?
+
+            <a href="cadastro.html">
+
+                Cadastre-se
+
+            </a>
+
+        </p>
 
     </section>
 
@@ -86,5 +101,8 @@
 
 </main>
 
+<script src="../js/login.js"></script>
+
 </body>
+
 </html>
