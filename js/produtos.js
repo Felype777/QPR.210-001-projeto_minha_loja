@@ -1,81 +1,65 @@
 // IMPORTANDO OS PRODUTOS
 import { produtos } from './lista_produtos.js';
+import { mostrarToast } from './toast.js';
 console.log("produtos.js carregado");
 
 const sectionCards = document.querySelector('#cards');
 const ulMenuSecoes = document.querySelector('#menu-secoes');
 const campoPesquisa = document.querySelector('#campo-pesquisa');
 const contadorCarrinho = document.querySelector('#contador-carrinho');
+const contadorFavoritos = document.querySelector("#contador-favoritos");
 
 // Atualiza o contador do carrinho
 function atualizarContadorCarrinho(){
-
     const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
-
     let total = 0;
-
     carrinho.forEach(item => {
         total += item.quantidade;
     });
-
     if(contadorCarrinho){
         contadorCarrinho.textContent = total;
     }
+}
 
+function atualizarContadorFavoritos(){
+    const favoritos =
+        JSON.parse(localStorage.getItem("favoritos")) || [];
+    if(contadorFavoritos){
+        contadorFavoritos.textContent = favoritos.length;
+    }
 }
 
 // ADICIONAR AO CARRINHO
 function adicionarAoCarrinho(produto) {
-
     console.log("1");
-
     let carrinho = [];
-
     console.log("2");
-
     try {
-
         carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
-
         console.log("3", carrinho);
-
     } catch (erro) {
-
         console.error("Erro ao ler localStorage:", erro);
-
         carrinho = [];
-
     }
-
     console.log("4");
-
     carrinho.push({
         ...produto,
         quantidade: 1
     });
-
     console.log("5");
-
     localStorage.setItem("carrinho", JSON.stringify(carrinho));
-
     console.log("6");
-
     atualizarContadorCarrinho();
-
-    alert("Produto salvo!");
+    mostrarToast("🛒 Produto adicionado ao carrinho!");
 
 }
 
 // MONTAR CARDS
 function montaCards(listaProdutos) {
-
     sectionCards.innerHTML = '';
-
     listaProdutos.forEach(produto => {
-
         const divCard = document.createElement('div');
         divCard.className = 'card';
-
         const img = document.createElement('img');
 
 img.src = produto.caminho_imagem;
@@ -92,14 +76,20 @@ img.addEventListener("click", () => {
 });
 
        // Selo
-       const selo = document.createElement('span');
-       selo.className = 'selo';
-       selo.textContent = 'NOVO';
+       const selo = document.createElement("span");
+       selo.className = "selo";
+       const desconto = Math.floor(Math.random() * 20) + 10;
+       selo.textContent = `-${desconto}% OFF`;
 
        // Estrelas
        const estrelas = document.createElement('div');
        estrelas.className = 'estrelas';
-       estrelas.innerHTML = '★★★★★';
+       const nota = (Math.random() * 0.8 + 4.2).toFixed(1);
+estrelas.innerHTML = `
+★★★★★
+<span class="nota">
+(${nota})
+</span>`;
 
       // Descrição
       const descricao = document.createElement('p');
@@ -117,6 +107,11 @@ descricao.addEventListener("click", () => {
 });
  
      // Preço
+     const precoAntigo = document.createElement("p");
+precoAntigo.className = "preco-antigo";
+const valorAntigo = produto.valor_unitario * 1.20;
+precoAntigo.textContent =
+`De: R$ ${valorAntigo.toFixed(2).replace(".", ",")}`;
     const preco = document.createElement('h2');
     preco.textContent =
     `R$ ${produto.valor_unitario.toFixed(2).replace('.', ',')}`;
@@ -129,13 +124,9 @@ descricao.addEventListener("click", () => {
 
     // Botão Comprar
     const comprar = document.createElement('button');
-
-    comprar.className = 'btn-comprar';
-    
+    comprar.className = 'btn-comprar';    
     comprar.textContent = 'Comprar Agora';
-    
     comprar.addEventListener("click", () => {
-    
         localStorage.setItem("produtoSelecionado", JSON.stringify(produto));
     
         window.location.href = "paginas/produto.html";
@@ -168,6 +159,7 @@ favorito.addEventListener('click', () => {
     }
 
     localStorage.setItem('favoritos', JSON.stringify(favoritos));
+    atualizarContadorFavoritos();
 
 });
 
@@ -190,6 +182,7 @@ divCard.appendChild(selo);
 divCard.appendChild(img);
 divCard.appendChild(estrelas);
 divCard.appendChild(descricao);
+divCard.appendChild(precoAntigo);
 divCard.appendChild(preco);
 divCard.appendChild(parcela);
 divCard.appendChild(comprar);
@@ -311,3 +304,4 @@ campoPesquisa.addEventListener('keyup', () => {
 listarProdutos();
 carregaSecoes();
 atualizarContadorCarrinho();
+atualizarContadorFavoritos();

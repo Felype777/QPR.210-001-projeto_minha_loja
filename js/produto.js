@@ -1,6 +1,6 @@
 // IMPORTANDO OS PRODUTOS
-
 import { produtos } from "./lista_produtos.js";
+import { mostrarToast } from "./toast.js";
 
 // ELEMENTOS DA PÁGINA
 
@@ -29,9 +29,11 @@ const modalImagem = document.querySelector("#modal-imagem");
 const imagemAmpliada = document.querySelector("#imagem-ampliada");
 const fecharModal = document.querySelector("#fechar-modal");
 
-// PRODUTO (TEMPORÁRIO)
+// PRODUTO SELECIONADO
 
-const produto = produtos[0];
+const produtoSalvo = JSON.parse(localStorage.getItem("produtoSelecionado"));
+
+const produto = produtoSalvo || produtos[0];
 
 // EXIBIR PRODUTO
 
@@ -66,7 +68,7 @@ btnCarrinho.addEventListener("click", () => {
 
     localStorage.setItem("carrinho", JSON.stringify(carrinho));
 
-    alert("Produto adicionado ao carrinho!");
+    mostrarToast("🛒 Produto adicionado ao carrinho!");
 
 });
 
@@ -181,11 +183,11 @@ function carregarAvaliacoes(){
 
 btnAvaliar.addEventListener("click", () => {
     if(notaSelecionada === 0){
-        alert("Escolha uma quantidade de estrelas.");
+        mostrarToast("⭐ Escolha uma quantidade de estrelas.");
         return;
     }
     if(novaAvaliacao.value.trim() === ""){
-        alert("Digite uma avaliação.");
+        mostrarToast("Digite uma avaliação.");
         return;
     }
     let avaliacoes = JSON.parse(

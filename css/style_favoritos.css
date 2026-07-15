@@ -1,0 +1,187 @@
+/*=========================================
+TÍTULO
+=========================================*/
+
+#titulo{
+
+    width:1200px;
+
+    max-width:95%;
+
+    margin:40px auto 20px;
+
+}
+
+#titulo h1{
+
+    font-size:38px;
+
+    color:#222;
+
+}
+
+/*=========================================
+CARDS FAVORITOS
+=========================================*/
+
+#cards-favoritos{
+
+    width:1200px;
+
+    max-width:95%;
+
+    margin:20px auto 50px;
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+    gap:30px;
+
+}
+
+.card-favorito{
+
+    background:#fff;
+
+    border-radius:15px;
+
+    padding:20px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.10);
+
+    text-align:center;
+
+    transition:.3s;
+
+}
+
+.card-favorito:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 12px 25px rgba(0,0,0,.18);
+
+}
+
+.card-favorito img{
+
+    width:180px;
+
+    height:180px;
+
+    object-fit:contain;
+
+    margin-bottom:15px;
+
+    cursor:pointer;
+
+}
+
+.card-favorito p{
+
+    font-size:18px;
+
+    color:#333;
+
+    margin:10px 0;
+
+    min-height:55px;
+
+}
+
+.card-favorito h2{
+
+    color:#058dc7;
+
+    margin-bottom:20px;
+
+}
+
+.card-favorito button{
+
+    width:100%;
+
+    height:45px;
+
+    border:none;
+
+    border-radius:8px;
+
+    margin-top:10px;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.btn-carrinho{
+
+    background:#058dc7;
+
+    color:white;
+
+}
+
+.btn-carrinho:hover{
+
+    background:#005fa3;
+
+}
+
+.btn-remover{
+
+    background:#ff3b30;
+
+    color:white;
+
+}
+
+.btn-remover:hover{
+
+    background:#d62828;
+
+}
+
+/*=========================================
+SEM FAVORITOS
+=========================================*/
+
+.sem-favoritos{
+
+    width:100%;
+
+    text-align:center;
+
+    font-size:24px;
+
+    color:#777;
+
+    padding:80px 20px;
+
+}
+
+/*=========================================
+RESPONSIVO
+=========================================*/
+
+@media(max-width:900px){
+
+    #titulo{
+
+        text-align:center;
+
+    }
+
+    #cards-favoritos{
+
+        width:95%;
+
+    }
+
+} 

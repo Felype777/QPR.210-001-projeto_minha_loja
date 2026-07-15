@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Checkout - DU7 IMPORTS</title>
+
+    <link rel="stylesheet" href="../css/style_estutura_pagina.css">
+
+    <link rel="stylesheet" href="../css/style_checkout.css">
+
+    <script src="../js/checkout.js" type="module" defer></script>
+
+</head>
+
+<body>
+
+<main id="geral">
+
+<header id="cabecalho">
+
+    <div id="logo">
+
+        <a href="../index.html">
+
+            DU7 IMPORTS
+
+        </a>
+
+    </div>
+
+    <nav id="menu">
+
+        <ul>
+
+            <li>
+
+                <a href="../index.html">
+
+                    Início
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="carrinho.html">
+
+                    Carrinho
+
+                </a>
+
+            </li>
+
+        </ul>
+
+    </nav>
+
+</header>
+
+<section id="checkout">
+
+    <h1>
+
+        Finalizar Compra
+
+    </h1>
+
+    <form id="form-checkout">
+
+        <input
+            type="text"
+            id="nome"
+            placeholder="Nome completo"
+            required>
+
+        <input
+            type="email"
+            id="email"
+            placeholder="E-mail"
+            required>
+
+        <input
+            type="text"
+            id="telefone"
+            placeholder="Telefone"
+            required>
+
+        <input
+            type="text"
+            id="cep"
+            placeholder="CEP"
+            required>
+
+        <input
+            type="text"
+            id="endereco"
+            placeholder="Endereço"
+            required>
+
+        <input
+            type="text"
+            id="cidade"
+            placeholder="Cidade"
+            required>
+
+        <select id="pagamento">
+
+            <option value="Pix">
+
+                Pix
+
+            </option>
+
+            <option value="Cartão de Crédito">
+
+                Cartão de Crédito
+
+            </option>
+
+            <option value="Cartão de Débito">
+
+                Cartão de Débito
+
+            </option>
+
+        </select>
+
+        <div id="resumo-pedido">
+
+        </div>
+
+        <button id="btn-finalizar" type="submit">
+
+            Finalizar Pedido
+
+        </button>
+
+    </form>
+
+</section>
+
+<footer id="rodape">
+
+    <h2>
+
+        &copy; 2026 DU7 IMPORTS
+
+    </h2>
+
+    <p>
+
+        Obrigado por comprar na DU7 IMPORTS.
+
+    </p>
+
+</footer>
+
+</main>
+
+<div id="toast">
+
+    <span id="toast-texto"></span>
+
+</div>
+
+</body>
+
+</html>
