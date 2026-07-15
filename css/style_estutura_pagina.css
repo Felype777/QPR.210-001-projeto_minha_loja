@@ -592,3 +592,114 @@ body{
     transform:translateY(-10px);
     box-shadow:0 15px 30px rgba(0,0,0,.18);
 }
+
+/*CONTATO*/
+#contato-loja{
+    width:100%;
+    background:#ffffff;
+    display:flex;
+    justify-content:space-around;
+    flex-wrap:wrap;
+    padding:60px 40px;
+    border-top:1px solid #ddd;
+}
+.info-contato{
+    width:320px;
+    margin:20px;
+}
+.info-contato h2{
+    color:#058dc7;
+    margin-bottom:20px;
+    font-size:28px;
+}
+.info-contato p{
+    color:#555;
+    font-size:17px;
+    margin-bottom:12px;
+    line-height:28px;
+}
+
+/*RODAPÉ PROFISSIONAL*/
+#rodape{
+    width:100%;
+    background:#1f2937;
+    color:white;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:40px;
+    padding:60px;
+}
+.coluna-rodape{
+    display:flex;
+    flex-direction:column;
+}
+.coluna-rodape h2{
+    color:#ffd54f;
+    margin-bottom:20px;
+    font-size:24px;
+}
+
+.coluna-rodape p{
+    color:#ddd;
+    line-height:28px;
+    margin-bottom:10px;
+}
+.coluna-rodape a{
+    color:#ddd;
+    text-decoration:none;
+    margin-bottom:12px;
+    transition:.3s;
+}
+.coluna-rodape a:hover{
+    color:#ffd54f;
+    padding-left:8px;
+}
+#copyright{
+    background:#111827;
+    color:#ccc;
+    text-align:center;
+    padding:20px;
+    font-size:15px;
+}
+
+/*CALCULAR FRETE*/
+#calcular-frete{
+    margin:30px 0;
+    padding:25px;
+    border:1px solid #ddd;
+    border-radius:12px;
+    background:#fafafa;
+}
+#calcular-frete h3{
+    margin-bottom:20px;
+    color:#058dc7;
+}
+#cep{
+    width:220px;
+    height:45px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    padding:10px;
+    font-size:16px;
+}
+
+#btn-frete{
+    height:45px;
+    padding:0 20px;
+    border:none;
+    border-radius:8px;
+    background:#058dc7;
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+    margin-left:10px;
+}
+#btn-frete:hover{
+    background:#005fa3;
+}
+#resultado-frete{
+    margin-top:20px;
+    font-size:17px;
+    color:#333;
+
+}

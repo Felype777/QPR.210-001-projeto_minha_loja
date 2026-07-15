@@ -154,17 +154,14 @@ function esvaziarCarrinho(){
     }
 
 }
-
 function finalizarCompra(){
-
-    alert("Compra finalizada com sucesso! Obrigado pela preferência.");
-
-    localStorage.removeItem("carrinho");
-
-    carregarCarrinho();
-
+    const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+    if(carrinho.length === 0){
+        alert("Seu carrinho está vazio.");
+        return;
+    }
+    window.location.href = "finalizar_compra.html";
 }
-
 window.aumentar = aumentar;
 window.diminuir = diminuir;
 window.remover = remover;

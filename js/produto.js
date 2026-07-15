@@ -300,3 +300,22 @@ function calcularMediaAvaliacoes(){
 
 
 calcularMediaAvaliacoes();
+
+const btnFrete = document.querySelector("#btn-frete");
+const campoCep = document.querySelector("#cep");
+const resultadoFrete = document.querySelector("#resultado-frete");
+
+btnFrete.addEventListener("click", () => {
+    const cep = campoCep.value.replace(/\D/g, "");
+    if(cep.length !== 8){
+        alert("Digite um CEP válido.");
+        return;
+    }
+    const valorFrete = (Math.random() * 20 + 10).toFixed(2);
+    const prazo = Math.floor(Math.random() * 5) + 2;
+    resultadoFrete.innerHTML = `
+        <strong>Entrega disponível!</strong><br><br>
+        Frete: <strong>R$ ${valorFrete.replace(".", ",")}</strong><br>
+        Prazo: <strong>${prazo} dias úteis</strong>
+    `;
+});
