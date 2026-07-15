@@ -31,27 +31,21 @@ function atualizarContadorFavoritos(){
 
 // ADICIONAR AO CARRINHO
 function adicionarAoCarrinho(produto) {
-    console.log("1");
-    let carrinho = [];
-    console.log("2");
-    try {
-        carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
-        console.log("3", carrinho);
-    } catch (erro) {
-        console.error("Erro ao ler localStorage:", erro);
-        carrinho = [];
+    let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+    const produtoExistente = carrinho.find(item =>
+        item.id_produto === produto.id_produto
+    );
+    if (produtoExistente) {
+        produtoExistente.quantidade++;
+    } else {
+        carrinho.push({
+            ...produto,
+            quantidade: 1
+        });
     }
-    console.log("4");
-    carrinho.push({
-        ...produto,
-        quantidade: 1
-    });
-    console.log("5");
     localStorage.setItem("carrinho", JSON.stringify(carrinho));
-    console.log("6");
     atualizarContadorCarrinho();
-    mostrarToast("🛒 Produto adicionado ao carrinho!");
-
+    alert("Produto adicionado ao carrinho!");
 }
 
 // MONTAR CARDS
