@@ -1,0 +1,71 @@
+#cadastro-endereco{
+
+    width:700px;
+    
+    max-width:95%;
+    
+    margin:50px auto;
+    
+    background:white;
+    
+    padding:40px;
+    
+    border-radius:12px;
+    
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+    
+    display:flex;
+    
+    flex-direction:column;
+    
+    gap:20px;
+    
+    }
+    
+    #cadastro-endereco h1{
+    
+    text-align:center;
+    
+    color:#058dc7;
+    
+    }
+    
+    #cadastro-endereco input{
+    
+    height:50px;
+    
+    padding:15px;
+    
+    font-size:17px;
+    
+    border:1px solid #ccc;
+    
+    border-radius:8px;
+    
+    }
+    
+    #salvar-endereco{
+    
+    height:55px;
+    
+    border:none;
+    
+    background:#058dc7;
+    
+    color:white;
+    
+    font-size:18px;
+    
+    font-weight:bold;
+    
+    border-radius:8px;
+    
+    cursor:pointer;
+    
+    }
+    
+    #salvar-endereco:hover{
+    
+    background:#005fa3;
+    
+    }
