@@ -1,175 +1,260 @@
 <!DOCTYPE html>
-
 <html lang="pt-br">
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Checkout - DU7 IMPORTS</title>
 
     <link rel="stylesheet" href="../css/style_estutura_pagina.css">
-
     <link rel="stylesheet" href="../css/style_checkout.css">
 
     <script src="../js/checkout.js" type="module" defer></script>
-
-</head>
 
 <body>
 
 <main id="geral">
 
-<header id="cabecalho">
+    <header id="cabecalho">
 
-    <div id="logo">
+        <div id="logo">
+            <a href="../index.html">DU7 IMPORTS</a>
+        </div>
 
-        <a href="../index.html">
+        <nav id="menu">
+            <ul>
+                <li><a href="../index.html">Início</a></li>
+                <li><a href="carrinho.html">Carrinho</a></li>
+            </ul>
+        </nav>
 
-            DU7 IMPORTS
+    </header>
 
-        </a>
+    <section id="checkout">
 
-    </div>
+        <div id="progresso">
 
-    <nav id="menu">
+            <div class="etapa ativa">
+                🛒 Carrinho
+            </div>
 
-        <ul>
+            <div class="linha"></div>
 
-            <li>
+            <div class="etapa ativa">
+                📦 Checkout
+            </div>
 
-                <a href="../index.html">
+            <div class="linha"></div>
 
-                    Início
-
-                </a>
-
-            </li>
-
-            <li>
-
-                <a href="carrinho.html">
-
-                    Carrinho
-
-                </a>
-
-            </li>
-
-        </ul>
-
-    </nav>
-
-</header>
-
-<section id="checkout">
-
-    <h1>
-
-        Finalizar Compra
-
-    </h1>
-
-    <form id="form-checkout">
-
-        <input
-            type="text"
-            id="nome"
-            placeholder="Nome completo"
-            required>
-
-        <input
-            type="email"
-            id="email"
-            placeholder="E-mail"
-            required>
-
-        <input
-            type="text"
-            id="telefone"
-            placeholder="Telefone"
-            required>
-
-        <input
-            type="text"
-            id="cep"
-            placeholder="CEP"
-            required>
-
-        <input
-            type="text"
-            id="endereco"
-            placeholder="Endereço"
-            required>
-
-        <input
-            type="text"
-            id="cidade"
-            placeholder="Cidade"
-            required>
-
-        <select id="pagamento">
-
-            <option value="Pix">
-
-                Pix
-
-            </option>
-
-            <option value="Cartão de Crédito">
-
-                Cartão de Crédito
-
-            </option>
-
-            <option value="Cartão de Débito">
-
-                Cartão de Débito
-
-            </option>
-
-        </select>
-
-        <div id="resumo-pedido">
+            <div class="etapa">
+                ✅ Pedido
+            </div>
 
         </div>
 
-        <button id="btn-finalizar" type="submit">
+        <h1>Finalizar Compra</h1>
 
-            Finalizar Pedido
+        <form id="form-checkout">
 
-        </button>
+            <div id="formulario">
 
-    </form>
+            <input
+                type="text"
+                id="nome"
+                placeholder="Nome Completo"
+                required>
 
-</section>
+            <input
+                type="email"
+                id="email"
+                placeholder="E-mail"
+                required>
 
-<footer id="rodape">
+            <input
+                type="text"
+                id="telefone"
+                placeholder="Telefone"
+                required>
 
-    <h2>
+            <input
+                type="text"
+                id="cep"
+                placeholder="CEP"
+                maxlength="9"
+                required>
 
-        &copy; 2026 DU7 IMPORTS
+            <input
+                type="text"
+                id="endereco"
+                placeholder="Rua"
+                required>
 
-    </h2>
+            <input
+                type="text"
+                id="numero"
+                placeholder="Número"
+                required>
 
-    <p>
+            <input
+                type="text"
+                id="complemento"
+                placeholder="Complemento">
 
-        Obrigado por comprar na DU7 IMPORTS.
+            <input
+                type="text"
+                id="bairro"
+                placeholder="Bairro"
+                required>
 
-    </p>
+            <input
+                type="text"
+                id="cidade"
+                placeholder="Cidade"
+                required>
 
-</footer>
+            <input
+                type="text"
+                id="estado"
+                placeholder="Estado"
+                required>
+
+            <h2>Forma de Pagamento</h2>
+
+            <select id="pagamento">
+
+                <option value="Pix">Pix</option>
+
+                <option value="Credito">
+                    Cartão de Crédito
+                </option>
+
+                <option value="Debito">
+                    Cartão de Débito
+                </option>
+
+                <option value="Boleto">
+                    Boleto Bancário
+                </option>
+
+            </select>
+
+            <div id="dados-cartao">
+
+                <input
+                    type="text"
+                    id="numero-cartao"
+                    placeholder="Número do Cartão">
+
+                <input
+                    type="text"
+                    id="nome-cartao"
+                    placeholder="Nome Impresso no Cartão">
+
+                <input
+                    type="text"
+                    id="validade"
+                    placeholder="MM/AA">
+
+                <input
+                    type="password"
+                    id="cvv"
+                    placeholder="CVV">
+
+                <select id="parcelas"></select>
+
+            </div>
+
+            <div id="pix-box">
+
+                <h3>Pagamento via PIX</h3>
+
+                <p>
+                    Ganhe <strong>5% de desconto</strong>
+                </p>
+
+                <img
+                    src="../imagens/qrcode-pix.png"
+                    alt="QR Code Pix">
+
+                <p>Código Copia e Cola</p>
+
+                <small id="codigo-pix">
+                    00020126580014BR.GOV.BCB.PIX0114DU7IMPORTS5204000053039865802BR5920DU7IMPORTS6009SAOPAULO62070503***
+                </small>
+
+            </div>
+
+            <div id="boleto-box">
+
+                <h3>Boleto Bancário</h3>
+
+                <p>
+                    Pagamento em até 3 dias úteis.
+                </p>
+
+                <p>
+                    Receba <strong>3% de desconto</strong>.
+                </p>
+
+            </div>
+
+            <div id="resumo-pedido">
+
+                <h2>Resumo do Pedido</h2>
+
+                <div id="lista-produtos"></div>
+
+                <hr>
+
+                <p>
+                    Frete
+                    <span id="valor-frete">
+                        R$ 0,00
+                    </span>
+                </p>
+
+                <p>
+                    Desconto
+                    <span id="valor-desconto">
+                        R$ 0,00
+                    </span>
+                </p>
+
+                <h3>
+                    Total
+                    <span id="valor-total">
+                        R$ 0,00
+                    </span>
+                </h3>
+
+            </div>
+
+            <button id="btn-finalizar" type="submit">
+                Confirmar Pedido
+            </button>
+
+    </div>
+
+</form>
+
+    </section>
+
+    <footer id="rodape">
+
+        <h2>
+            &copy; 2026 DU7 IMPORTS
+        </h2>
+
+        <p>
+            Obrigado por comprar na DU7 IMPORTS.
+        </p>
+
+    </footer>
 
 </main>
 
 <div id="toast">
-
     <span id="toast-texto"></span>
-
 </div>
 
 </body>
-
 </html>

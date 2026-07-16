@@ -1,0 +1,120 @@
+#pedido-confirmado{
+    width:900px;
+    max-width:95%;
+    margin:60px auto;
+    background:#fff;
+    border-radius:15px;
+    padding:50px;
+    text-align:center;
+    box-shadow:0 10px 30px rgba(0,0,0,.12);
+}
+
+#icone-sucesso{
+    width:120px;
+    height:120px;
+    margin:0 auto 25px;
+    border-radius:50%;
+    background:#00b050;
+    color:#fff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:60px;
+}
+
+#pedido-confirmado h1{
+    font-size:38px;
+    color:#222;
+    margin-bottom:20px;
+}
+
+#pedido-confirmado p{
+    font-size:18px;
+    color:#555;
+    margin-bottom:10px;
+}
+
+#informacoes-pedido{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+    margin:45px 0;
+}
+
+.info{
+    background:#f7f7f7;
+    padding:25px;
+    border-radius:12px;
+    border:1px solid #ddd;
+}
+
+.info h3{
+    margin-bottom:15px;
+    color:#058dc7;
+}
+
+.info span{
+    font-size:18px;
+    font-weight:bold;
+}
+
+.status{
+    color:#00a650;
+}
+
+#acoes{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    margin-top:30px;
+}
+
+.btn{
+    width:240px;
+    height:55px;
+    border:none;
+    border-radius:8px;
+    background:#058dc7;
+    color:#fff;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.btn:hover{
+    background:#005fa3;
+}
+
+.btn-secundario{
+    background:#00a650;
+}
+
+.btn-secundario:hover{
+    background:#008542;
+}
+
+@media(max-width:768px){
+
+    #pedido-confirmado{
+        padding:30px;
+    }
+
+    #informacoes-pedido{
+        grid-template-columns:1fr;
+    }
+
+    #acoes{
+        flex-direction:column;
+        align-items:center;
+    }
+
+    .btn{
+        width:100%;
+    }
+
+    #pedido-confirmado h1{
+        font-size:30px;
+    }
+
+}

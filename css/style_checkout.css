@@ -1,97 +1,174 @@
-/*CHECKOUT*/
 #checkout{
-    width:700px;
+    width:1200px;
     max-width:95%;
     margin:50px auto;
     background:#fff;
-    padding:40px;
     border-radius:15px;
     box-shadow:0 10px 25px rgba(0,0,0,.12);
+    padding:40px;
+}
+
+#progresso{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:15px;
+    margin-bottom:40px;
+}
+
+.etapa{
+    background:#ddd;
+    color:#555;
+    padding:12px 25px;
+    border-radius:30px;
+    font-weight:bold;
+}
+
+.etapa.ativa{
+    background:#058dc7;
+    color:#fff;
+}
+
+.linha{
+    width:80px;
+    height:4px;
+    background:#ddd;
 }
 
 #checkout h1{
     text-align:center;
     margin-bottom:35px;
-    color:#222;
     font-size:38px;
+    color:#222;
 }
 
 #form-checkout{
+    display:grid;
+    grid-template-columns:2fr 1fr;
+    gap:40px;
+}
+
+#formulario{
     display:flex;
     flex-direction:column;
     gap:18px;
 }
 
-#form-checkout input,
-#form-checkout select{
+#formulario input,
+#formulario select{
     width:100%;
     height:50px;
     border:1px solid #ddd;
     border-radius:8px;
     padding:0 15px;
     font-size:16px;
-    outline:none;
     transition:.3s;
 }
 
-#form-checkout input:focus,
-#form-checkout select:focus{
+#formulario input:focus,
+#formulario select:focus{
     border-color:#058dc7;
     box-shadow:0 0 8px rgba(5,141,199,.2);
+    outline:none;
+}
+
+#dados-cartao,
+#pix-box,
+#boleto-box{
+    display:none;
+    margin-top:15px;
+    padding:20px;
+    background:#f7f7f7;
+    border-radius:10px;
+}
+
+#dados-cartao input,
+#dados-cartao select{
+    margin-bottom:15px;
+}
+
+#pix-box img{
+    width:180px;
+    display:block;
+    margin:20px auto;
+}
+
+#codigo-pix{
+    display:block;
+    background:#eee;
+    padding:12px;
+    border-radius:8px;
+    word-break:break-all;
+    margin-top:15px;
 }
 
 #resumo-pedido{
-    margin-top:25px;
-    padding:20px;
-    border-radius:10px;
-    background:#f7f7f7;
-    border:1px solid #e5e5e5;
-
+    background:#f8f8f8;
+    border:1px solid #ddd;
+    border-radius:12px;
+    padding:25px;
+    height:max-content;
+    position:sticky;
+    top:30px;
 }
 
 #resumo-pedido h2{
-    margin-bottom:15px;
-    color:#222;
-
+    margin-bottom:20px;
 }
 
 .item-resumo{
     display:flex;
     justify-content:space-between;
-    margin-bottom:10px;
-    font-size:16px;
+    margin-bottom:12px;
+    font-size:15px;
 }
 
-#total-pedido{
-    margin-top:20px;
-    padding-top:15px;
-    border-top:2px solid #ddd;
-    font-size:22px;
-    font-weight:bold;
-    color:#058dc7;
-    text-align:right;
+#resumo-pedido hr{
+    margin:20px 0;
+}
 
+#resumo-pedido p{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:12px;
+}
+
+#resumo-pedido h3{
+    display:flex;
+    justify-content:space-between;
+    color:#058dc7;
+    font-size:24px;
+    margin-top:20px;
 }
 
 #btn-finalizar{
+    grid-column:1/3;
     width:100%;
-    height:55px;
-    margin-top:25px;
+    height:60px;
     border:none;
     border-radius:10px;
-    background:#058dc7;
-    color:white;
-    font-size:18px;
+    background:#00a650;
+    color:#fff;
+    font-size:20px;
     font-weight:bold;
     cursor:pointer;
     transition:.3s;
 }
 
 #btn-finalizar:hover{
-    background:#005fa3;
+    background:#008d44;
 }
 
-@media(max-width:768px){
+@media(max-width:900px){
+
+    #form-checkout{
+        grid-template-columns:1fr;
+    }
+
+    #btn-finalizar{
+        grid-column:1;
+    }
+
     #checkout{
         padding:25px;
     }

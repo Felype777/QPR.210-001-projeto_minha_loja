@@ -1,6 +1,4 @@
-/*=========================================
-PÁGINA DO PRODUTO
-=========================================*/
+/*PÁGINA DO PRODUTO*/
 
 #pagina-produto{
 
@@ -28,9 +26,7 @@ PÁGINA DO PRODUTO
 
 }
 
-/*==============================
-IMAGEM
-==============================*/
+/*IMAGEM*/
 
 #imagem-produto{
 
@@ -64,9 +60,7 @@ IMAGEM
 
 }
 
-/*==============================
-INFORMAÇÕES
-==============================*/
+/*INFORMAÇÕES*/
 
 #informacoes-produto{
 
@@ -180,9 +174,7 @@ INFORMAÇÕES
 
 }
 
-/*==============================
-BOTÕES
-==============================*/
+/*BOTÕES*/
 
 #btn-comprar{
 
@@ -248,9 +240,7 @@ BOTÕES
 
 }
 
-/*==============================
-RESPONSIVO
-==============================*/
+/*RESPONSIVO*/
 
 @media(max-width:900px){
 
@@ -276,9 +266,7 @@ RESPONSIVO
 
 }
 
-/*=========================================
-PRODUTOS RELACIONADOS
-=========================================*/
+/*PRODUTOS RELACIONADOS*/
 
 #relacionados{
 
@@ -364,9 +352,7 @@ PRODUTOS RELACIONADOS
 
 }
 
-/*=========================================
-MODAL DA IMAGEM
-=========================================*/
+/*MODAL DA IMAGEM*/
 
 #modal-imagem{
 
@@ -552,25 +538,60 @@ MODAL DA IMAGEM
     font-size:25px;
 
 }
-
 .estrela:hover{
-
     color:#ffd54f;
-
 }
-
-
 .estrela.ativa{
-
     color:#ffd54f;
-
 }
-
-
-
 .avaliacao h3{
-
     color:#058dc7;
     font-size:25px;
+}
 
+/*CALCULAR FRETE*/
+#calcular-frete{
+    margin:30px 0;
+    padding:25px;
+    background:#f8f9fa;
+    border:1px solid #ddd;
+    border-radius:12px;
+}
+#calcular-frete h3{
+    color:#058dc7;
+    margin-bottom:20px;
+}
+.frete-linha{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+}
+#cep{
+    flex:1;
+    min-width:180px;
+    height:45px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    padding:0 15px;
+    font-size:16px;
+}
+#btn-frete{
+    height:45px;
+    padding:0 25px;
+    border:none;
+    border-radius:8px;
+    background:#058dc7;
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+}
+#btn-frete:hover{
+    background:#005fa3;
+} 
+#resultado-frete{
+    margin-top:20px;
+    line-height:28px;
+    color:#333;
+    font-size:16px;
 }

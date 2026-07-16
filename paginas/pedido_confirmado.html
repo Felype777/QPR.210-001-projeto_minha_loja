@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pedido Confirmado - DU7 IMPORTS</title>
+
+    <link rel="stylesheet" href="../css/style_estutura_pagina.css">
+    <link rel="stylesheet" href="../css/style_pedido_confirmado.css">
+
+    <script src="../js/pedido_confirmado.js" defer></script>
+
+</head>
+
+<body>
+
+<main id="geral">
+
+    <header id="cabecalho">
+
+        <div id="logo">
+
+            <a href="../index.html">
+
+                DU7 IMPORTS
+
+            </a>
+
+        </div>
+
+        <nav id="menu">
+
+            <ul>
+
+                <li>
+
+                    <a href="../index.html">
+
+                        Início
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="carrinho.html">
+
+                        Carrinho
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+    <section id="pedido-confirmado">
+
+        <div id="icone-sucesso">
+
+            ✅
+
+        </div>
+
+        <h1>
+
+            Pedido realizado com sucesso!
+
+        </h1>
+
+        <p>
+
+            Obrigado por comprar na <strong>DU7 IMPORTS</strong>.
+
+        </p>
+
+        <p>
+
+            Seu pedido foi recebido e já está sendo preparado para envio.
+
+        </p>
+
+        <div id="informacoes-pedido">
+
+            <div class="info">
+
+                <h3>Número do Pedido</h3>
+
+                <span id="numero-pedido"></span>
+
+            </div>
+
+            <div class="info">
+
+                <h3>Data</h3>
+
+                <span id="data-pedido"></span>
+
+            </div>
+
+            <div class="info">
+
+                <h3>Status</h3>
+
+                <span class="status">
+
+                    Pagamento Aprovado
+
+                </span>
+
+            </div>
+
+        </div>
+
+        <div id="acoes">
+
+            <a href="../index.html">
+
+                <button class="btn">
+
+                    Continuar Comprando
+
+                </button>
+
+            </a>
+
+            <button
+                class="btn btn-secundario"
+                id="btn-imprimir">
+
+                Imprimir Comprovante
+
+            </button>
+
+        </div>
+
+    </section>
+
+    <footer id="rodape">
+
+        <h2>
+
+            &copy; 2026 DU7 IMPORTS
+
+        </h2>
+
+        <p>
+
+            Obrigado pela preferência.
+
+        </p>
+
+    </footer>
+
+</main>
+
+<div id="toast">
+
+    <span id="toast-texto"></span>
+
+</div>
+
+</body>
+
+</html>

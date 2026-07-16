@@ -122,3 +122,91 @@ hr{
     background:#005fa3;
 
 }
+
+/*CALCULAR FRETE*/
+
+#calcular-frete{
+
+    margin-top:40px;
+
+    padding:25px;
+
+    background:#f8f9fa;
+
+    border-radius:12px;
+
+    border:1px solid #ddd;
+
+}
+
+#calcular-frete h2{
+
+    color:#058dc7;
+
+    margin-bottom:20px;
+
+}
+
+.frete-linha{
+
+    display:flex;
+
+    gap:15px;
+
+    flex-wrap:wrap;
+
+}
+
+#cep{
+
+    flex:1;
+
+    min-width:220px;
+
+    height:45px;
+
+    padding:0 15px;
+
+    border:1px solid #ccc;
+
+    border-radius:8px;
+
+    font-size:16px;
+
+}
+
+#btn-frete{
+
+    height:45px;
+
+    padding:0 25px;
+
+    border:none;
+
+    border-radius:8px;
+
+    background:#058dc7;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-weight:bold;
+
+}
+
+#btn-frete:hover{
+
+    background:#005fa3;
+
+}
+
+#resultado-frete{
+
+    margin-top:20px;
+
+    line-height:28px;
+
+    font-size:17px;
+
+}

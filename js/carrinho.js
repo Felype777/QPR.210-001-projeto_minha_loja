@@ -1,3 +1,4 @@
+let valorFrete = 0;
 const listaItens = document.getElementById("itens-carrinho");
 
 function carregarCarrinho() {
@@ -84,7 +85,11 @@ function carregarCarrinho() {
 
         <hr>
 
-        <h2>Total: R$ ${total.toFixed(2).replace(".", ",")}</h2>
+        <h2>Produtos: R$ ${total.toFixed(2).replace(".", ",")}</h2>
+
+<h3>Frete: R$ ${valorFrete.toFixed(2).replace(".", ",")}</h3>
+
+<h2>Total Geral: R$ ${(total + valorFrete).toFixed(2).replace(".", ",")}</h2>
 
         <br>
 
@@ -160,7 +165,7 @@ function finalizarCompra(){
         alert("Seu carrinho está vazio.");
         return;
     }
-    window.location.href = "finalizar_compra.html";
+    window.location.href = "checkout.html";
 }
 window.aumentar = aumentar;
 window.diminuir = diminuir;
@@ -169,3 +174,68 @@ window.esvaziarCarrinho = esvaziarCarrinho;
 window.finalizarCompra = finalizarCompra;
 
 carregarCarrinho();
+
+const campoCep = document.querySelector("#cep");
+const btnFrete = document.querySelector("#btn-frete");
+const resultadoFrete = document.querySelector("#resultado-frete");
+
+if(btnFrete){
+
+    btnFrete.addEventListener("click", async () => {
+
+        const cep = campoCep.value.replace(/\D/g,"");
+
+        if(cep.length !== 8){
+
+            resultadoFrete.innerHTML =
+            "<strong>Digite um CEP válido.</strong>";
+
+            return;
+
+        }
+
+        try{
+
+            const resposta = await fetch(
+                `https://viacep.com.br/ws/${cep}/json/`
+            );
+
+            const dados = await resposta.json();
+
+            if(dados.erro){
+
+                resultadoFrete.innerHTML =
+                "<strong>CEP não encontrado.</strong>";
+
+                return;
+
+            }
+
+            valorFrete = Number((Math.random() * 20 + 10).toFixed(2));
+
+            const prazo = Math.floor(Math.random()*5)+2;
+
+            resultadoFrete.innerHTML = `
+
+                <p><strong>📍 ${dados.localidade} - ${dados.uf}</strong></p>
+
+                <p>🚚 Frete:
+                <strong>R$ ${frete.replace(".",",")}</strong></p>
+
+                <p>📦 Prazo:
+                <strong>${prazo} dias úteis</strong></p>
+
+            `;
+
+            carregarCarrinho();
+
+        }catch{
+
+            resultadoFrete.innerHTML =
+            "<strong>Erro ao consultar o CEP.</strong>";
+
+        }
+
+    });
+
+}
