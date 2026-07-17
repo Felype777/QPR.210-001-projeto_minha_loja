@@ -183,4 +183,24 @@ carregarResumo();
 
 pagamento.dispatchEvent(new Event("change"));
 
+const chavePix = "79998334561";
+
+document.getElementById("codigo-pix").value = chavePix;
+
+new QRCode(document.getElementById("qrcode-pix"),{
+    text:chavePix,
+    width:220,
+    height:220
+});
+
 console.log("Checkout carregado!");
+
+const btnCopiarPix = document.querySelector("#btn-copiar-pix");
+
+btnCopiarPix.addEventListener("click", () => {
+
+    navigator.clipboard.writeText(chavePix);
+
+    mostrarToast("✅ Chave PIX copiada!");
+
+});

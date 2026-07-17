@@ -178,3 +178,27 @@
     }
 
 }
+
+#pix-box{
+    display:none;
+    text-align:center;
+    margin-top:20px;
+    padding:20px;
+    border:1px solid #ddd;
+    border-radius:10px;
+    background:#f8f8f8;
+}
+
+#qrcode-pix{
+    margin:20px auto;
+    width:220px;
+}
+
+#codigo-pix{
+    width:100%;
+    resize:none;
+    padding:10px;
+    border-radius:8px;
+    border:1px solid #ccc;
+    font-size:13px;
+}

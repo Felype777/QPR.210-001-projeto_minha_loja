@@ -171,9 +171,23 @@
                     Ganhe <strong>5% de desconto</strong>
                 </p>
 
-                <img
-                    src="../imagens/qrcode-pix.png"
-                    alt="QR Code Pix">
+                <div id="qrcode-pix"></div>
+
+                <h4>💳 Pagamento via PIX</h4>
+
+<p id="mensagem-pix">
+    Escaneie o QR Code ou copie a chave PIX para realizar o pagamento de forma rápida e segura.
+</p>
+
+<textarea
+    id="codigo-pix"
+    readonly
+    rows="4">
+</textarea>
+
+<button id="btn-copiar-pix" type="button">
+    📋 Copiar Chave PIX
+</button>
 
                 <p>Código Copia e Cola</p>
 
@@ -255,6 +269,10 @@
 <div id="toast">
     <span id="toast-texto"></span>
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+<script src="../js/checkout.js" type="module"></script>
 
 </body>
 </html>
